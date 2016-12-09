@@ -44,7 +44,47 @@ import org.spongepowered.api.data.key.Key;
 import org.spongepowered.api.data.key.Keys;
 import org.spongepowered.api.data.meta.ItemEnchantment;
 import org.spongepowered.api.data.meta.PatternLayer;
-import org.spongepowered.api.data.type.*;
+import org.spongepowered.api.data.type.Art;
+import org.spongepowered.api.data.type.BigMushroomType;
+import org.spongepowered.api.data.type.BodyPart;
+import org.spongepowered.api.data.type.BrickType;
+import org.spongepowered.api.data.type.Career;
+import org.spongepowered.api.data.type.CoalType;
+import org.spongepowered.api.data.type.ComparatorType;
+import org.spongepowered.api.data.type.CookedFish;
+import org.spongepowered.api.data.type.DirtType;
+import org.spongepowered.api.data.type.DisguisedBlockType;
+import org.spongepowered.api.data.type.DoublePlantType;
+import org.spongepowered.api.data.type.DyeColor;
+import org.spongepowered.api.data.type.Fish;
+import org.spongepowered.api.data.type.GoldenApple;
+import org.spongepowered.api.data.type.Hinge;
+import org.spongepowered.api.data.type.HorseColor;
+import org.spongepowered.api.data.type.HorseStyle;
+import org.spongepowered.api.data.type.HorseVariant;
+import org.spongepowered.api.data.type.LogAxis;
+import org.spongepowered.api.data.type.NotePitch;
+import org.spongepowered.api.data.type.OcelotType;
+import org.spongepowered.api.data.type.PickupRule;
+import org.spongepowered.api.data.type.PistonType;
+import org.spongepowered.api.data.type.PlantType;
+import org.spongepowered.api.data.type.PortionType;
+import org.spongepowered.api.data.type.PrismarineType;
+import org.spongepowered.api.data.type.Profession;
+import org.spongepowered.api.data.type.QuartzType;
+import org.spongepowered.api.data.type.RabbitType;
+import org.spongepowered.api.data.type.RailDirection;
+import org.spongepowered.api.data.type.SandType;
+import org.spongepowered.api.data.type.SandstoneType;
+import org.spongepowered.api.data.type.ShrubType;
+import org.spongepowered.api.data.type.SkeletonType;
+import org.spongepowered.api.data.type.SkullType;
+import org.spongepowered.api.data.type.SlabType;
+import org.spongepowered.api.data.type.StairShape;
+import org.spongepowered.api.data.type.StoneType;
+import org.spongepowered.api.data.type.TreeType;
+import org.spongepowered.api.data.type.WallType;
+import org.spongepowered.api.data.type.ZombieType;
 import org.spongepowered.api.data.value.mutable.ListValue;
 import org.spongepowered.api.data.value.mutable.MapValue;
 import org.spongepowered.api.data.value.mutable.MutableBoundedValue;
@@ -64,6 +104,8 @@ import org.spongepowered.api.item.merchant.TradeOffer;
 import org.spongepowered.api.profile.GameProfile;
 import org.spongepowered.api.registry.AdditionalCatalogRegistryModule;
 import org.spongepowered.api.registry.util.RegisterCatalog;
+import org.spongepowered.api.statistic.Statistic;
+import org.spongepowered.api.statistic.achievement.Achievement;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.util.Axis;
 import org.spongepowered.api.util.Color;
@@ -540,6 +582,18 @@ public class KeyRegistryModule implements AdditionalCatalogRegistryModule<Key<?>
     public static final TypeToken<Value<PickupRule>> PICKUP_VALUE_TOKEN = new TypeToken<Value<PickupRule>>() {
         private static final long serialVersionUID = -1;
     };
+    public static final TypeToken<Set<Achievement>> ACHIEVEMENT_SET_TOKEN = new TypeToken<Set<Achievement>>() {
+        private static final long serialVersionUID = -1;
+    };
+    public static final TypeToken<SetValue<Achievement>> ACHIEVEMENT_SET_VALUE_TOKEN = new TypeToken<SetValue<Achievement>>() {
+        private static final long serialVersionUID = -1;
+    };
+    public static final TypeToken<Map<Statistic, Long>> STATISTIC_MAP_TOKEN = new TypeToken<Map<Statistic, Long>>() {
+        private static final long serialVersionUID = -1;
+    };
+    public static final TypeToken<MapValue<Statistic, Long>> STATISTIC_MAP_VALUE_TOKEN = new TypeToken<MapValue<Statistic, Long>>() {
+        private static final long serialVersionUID = -1;
+    };
 
     public static final TypeToken<ZombieType> ZOMBIE_TYPE_TOKEN = new TypeToken<ZombieType>() {
         private static final long serialVersionUID = -1;
@@ -966,6 +1020,10 @@ public class KeyRegistryModule implements AdditionalCatalogRegistryModule<Key<?>
         this.fieldMap.put("has_gravity", makeSingleKey(BOOLEAN_TOKEN, BOOLEAN_VALUE_TOKEN, of("HasGravity"), "sponge:has_gravity", "Has Gravity"));
 
         this.fieldMap.put("zombie_type", makeSingleKey(ZOMBIE_TYPE_TOKEN, ZOMBIE_TYPE_VALUE_TOKEN, of("ZombieType"), "sponge:zombie_type", "Zombie Type"));
+
+        this.fieldMap.put("achievements", makeSingleKey(ACHIEVEMENT_SET_TOKEN, ACHIEVEMENT_SET_VALUE_TOKEN, of("Achievements"), "sponge:achievements", "Achievements"));
+
+        this.fieldMap.put("statistics", makeSingleKey(STATISTIC_MAP_TOKEN, STATISTIC_MAP_VALUE_TOKEN, of("Statistics"), "sponge:statistics", "Statistics"));
 
         this.fieldMap.put("infinite_despawn_delay", makeSingleKey(BOOLEAN_TOKEN, BOOLEAN_VALUE_TOKEN, of("InfiniteDespawnDelay"), "sponge:infinite_despawn_delay", "Infinite Despawn Delay"));
         this.fieldMap.put("infinite_pickup_delay", makeSingleKey(BOOLEAN_TOKEN, BOOLEAN_VALUE_TOKEN, of("InfinitePickupDelay"), "sponge:infinite_pickup_delay", "Infinite Pickup Delay"));

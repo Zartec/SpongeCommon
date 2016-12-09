@@ -33,13 +33,10 @@ import com.google.inject.Singleton;
 import ninja.leaping.configurate.objectmapping.serialize.TypeSerializers;
 import org.spongepowered.api.CatalogType;
 import org.spongepowered.api.GameRegistry;
-import org.spongepowered.api.block.BlockType;
 import org.spongepowered.api.data.value.ValueFactory;
-import org.spongepowered.api.entity.EntityType;
 import org.spongepowered.api.entity.ai.task.AITaskType;
 import org.spongepowered.api.entity.ai.task.AbstractAITask;
 import org.spongepowered.api.entity.living.Agent;
-import org.spongepowered.api.item.ItemType;
 import org.spongepowered.api.item.merchant.VillagerRegistry;
 import org.spongepowered.api.item.recipe.RecipeRegistry;
 import org.spongepowered.api.network.status.Favicon;
@@ -53,12 +50,6 @@ import org.spongepowered.api.registry.util.PluginProvidedRegistryModule;
 import org.spongepowered.api.registry.util.RegistrationDependency;
 import org.spongepowered.api.resourcepack.ResourcePack;
 import org.spongepowered.api.scoreboard.displayslot.DisplaySlot;
-import org.spongepowered.api.statistic.BlockStatistic;
-import org.spongepowered.api.statistic.EntityStatistic;
-import org.spongepowered.api.statistic.ItemStatistic;
-import org.spongepowered.api.statistic.Statistic;
-import org.spongepowered.api.statistic.StatisticGroup;
-import org.spongepowered.api.statistic.TeamStatistic;
 import org.spongepowered.api.text.format.TextColor;
 import org.spongepowered.api.text.serializer.TextSerializerFactory;
 import org.spongepowered.api.text.translation.Translation;
@@ -356,31 +347,6 @@ public class SpongeGameRegistry implements GameRegistry {
     @Override
     public Optional<Translation> getTranslationById(String id) {
         return Optional.of(new SpongeTranslation(id));
-    }
-
-    @Override
-    public Optional<EntityStatistic> getEntityStatistic(StatisticGroup statisticGroup, EntityType entityType) {
-        throw new UnsupportedOperationException(); // TODO
-    }
-
-    @Override
-    public Optional<ItemStatistic> getItemStatistic(StatisticGroup statisticGroup, ItemType itemType) {
-        throw new UnsupportedOperationException(); // TODO
-    }
-
-    @Override
-    public Optional<BlockStatistic> getBlockStatistic(StatisticGroup statisticGroup, BlockType blockType) {
-        throw new UnsupportedOperationException(); // TODO
-    }
-
-    @Override
-    public Optional<TeamStatistic> getTeamStatistic(StatisticGroup statisticGroup, TextColor teamColor) {
-        throw new UnsupportedOperationException(); // TODO
-    }
-
-    @Override
-    public Collection<Statistic> getStatistics(StatisticGroup statisticGroup) {
-        throw new UnsupportedOperationException(); // TODO
     }
 
     @Override
